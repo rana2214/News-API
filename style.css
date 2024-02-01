@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* global variable */
+:root{
+    --primary-text-color: #183b56;
+    --secondary-text-color: #577592;
+    --accent-color: #2294ed;
+    --accent-color-dark: #1d69a3;
+}
+body{
+    font-family: "Poppins", sans-serif;
+    color:var(--primary-text-color) ;
+}
+p{
+    font-family: "Roboto", sans-serif;
+    color: var(--secondary-text-color);
+    line-height: 1.3rem;
+}
+/* underline remove && bullet remove*/
+a{
+    text-decoration: none; 
+}
+ul{
+    list-style: none;
+}
+/* utility class */
+.flex{
+    display: flex;
+    align-items: center;
+}
+/* align nav and main left side && same margin L&R */
+.container{
+    max-width: 1180px;
+    margin-inline: auto;
+    overflow: hidden;
+}
+nav {
+    background-color: #f3faff;
+    box-shadow: 0 0 4px #bbd0e2;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    left: 0;
+    right: 0;
+}
+.main-nav{
+    justify-content: space-between;
+    padding: 8px 0;
+}
+.company-logo img{
+    width: 67px;
+}
+.nav-link ul{
+    gap: 16px
+    
+}
+.hover-link{
+    cursor: pointer; 
+}
+.hover-link:hover{
+    color: var(--secondary-text-color);
+}
+.hover-link:active{
+    color: red;
+}
+.nav-item.active{
+    color: var(--accent-color);
+}
+.search-bar{
+    height: 32px;
+    gap: 8px;
+}
+.news-input {
+    width: 200px;
+    height: 100%;
+    padding-inline: 12px;
+    border-radius: 4px;
+    font-family: "Roboto", sans-serif;
+    border: 2px solid #bbd0e2;
+    font-family: "Roboto", sans-serif;
+}
+.search-button{
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 24px;
+    font-family: "Roboto", sans-serif;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.search-button:hover{
+    background-color: var(--accent-color-dark);
+}
+main{
+    padding-block: 20px;
+    margin-top: 80px;
+}
+.cards-container{
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    align-items: start;
+}
+/* overflow hidden cause image not following the B-radius */
+.card {
+    width: 360px;
+    min-height: 400px;
+    box-shadow: 0 0 4px #d4ecff;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+} 
+.card:hover {
+    box-shadow: 1px 1px 8px #d4ecff;
+    background-color: #f9fdff;
+    transform: translateY(-2px);
+}
+.card-header img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.card-content{
+    padding: 12px;
+
+}
+.news-source{
+    margin-block: 12px;
+}
+.nav-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width:420px){
+    /* .search-bar{
+        display: none;
+    } */
+    .card {
+        width: 255px;
+        min-height: 323px;
+        box-shadow: 0 0 4px #d4ecff;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: #fff;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    .news-input {
+        width: 129px;
+        height: 100%;
+        padding-inline: 8px;
+        border-radius: 4px;
+        font-family: "Roboto", sans-serif;
+        border: 2px solid #bbd0e2;
+        font-family: "Roboto", sans-serif;
+    }
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color:black;
+}
+@media(max-width:768px){
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0px;
+        flex-direction: column;
+        background-color: #f3faff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        color: black;
+    }
+    .nav-item{
+        margin: 16px 0;  
+    }
+    .nav-menu.active{
+        left: 0;
+    }
+}
+@media only screen and (max-width:345px){
+    .search-button { 
+        padding: 6px 5px;
+    }
+    .news-input {
+        width: 115px; 
+    }
+}
